@@ -1,0 +1,12 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1778980608
+icon.svg::CompressedTexture2D::8788810445164620394::1754254717::1778837427::1::::<><><>0<>0<>2ec37d050015da7f2a3de2ac4c4986e1<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Materials/::1754254717
+Blue.tres::StandardMaterial3D::1109378511400077276::1754254717::0::1::::<><><>0<>0<><>::
+Green.tres::StandardMaterial3D::4460615660192160260::1754254717::0::1::::<><><>0<>0<><>::
+Pink.tres::StandardMaterial3D::3002083277062480744::1754254717::0::1::::<><><>0<>0<><>::
+Red.tres::StandardMaterial3D::4268741505349743764::1754254717::0::1::::<><><>0<>0<><>::
+::res://Scenes/::1754254717
+World.tscn::PackedScene::7285665154832654338::1754254717::0::1::::<><><>0<>0<><>::res://Scripts/Player.gd<>uid://b4s0xnt1f6lia::::res://Materials/Green.tres<>uid://bi1h4xe7msjwi::::res://Materials/Pink.tres<>uid://b122sws3pt7w7::::res://Materials/Red.tres<>uid://p2nkjd3ge3qm::::res://Materials/Blue.tres
+::res://Scripts/::1778837427
+Player.gd::GDScript::7914271108176677566::1754254717::0::1::::<>CharacterBody3D<><>0<>0<><>::
