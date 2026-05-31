@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bsysifo0edqi7"]
+
+[ext_resource type="Script" uid="uid://sepkx7prn5jp" path="res://Scripts/npc.gd" id="1_twre2"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ll5ud"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u1jv5"]
+
+[node name="girlfriend" type="CharacterBody3D" unique_id=544157555 groups=["girlfriend"]]
+script = ExtResource("1_twre2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1834322120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_ll5ud")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1417020283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_u1jv5")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1365683232]

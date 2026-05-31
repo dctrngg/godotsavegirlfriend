@@ -4,7 +4,8 @@ var speed
 const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
 const JUMP_VELOCITY = 4.8
-const SENSITIVITY = 0.004
+const SENSITIVITY = 0.002
+
 
 #bob variables
 const BOB_FREQ = 2.4
@@ -69,7 +70,7 @@ func _physics_process(delta):
 	# FOV
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
-	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+	
 	
 	move_and_slide()
 
