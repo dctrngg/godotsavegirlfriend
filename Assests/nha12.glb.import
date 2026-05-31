@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://kukfmpoy01r6"
-path="res://.godot/imported/car_stationwagon.gltf-57f7b919c46570f9891285236f45fb59.scn"
+uid="uid://0rr87wwml2xb"
+path="res://.godot/imported/nha12.glb-41ebb793d50ef7a4a820fcaa7a26fac0.scn"
 
 [deps]
 
-source_file="res://Assests/gltf/car_stationwagon.gltf"
-dest_files=["res://.godot/imported/car_stationwagon.gltf-57f7b919c46570f9891285236f45fb59.scn"]
+source_file="res://Assests/nha12.glb"
+dest_files=["res://.godot/imported/nha12.glb-41ebb793d50ef7a4a820fcaa7a26fac0.scn"]
 
 [params]
 
@@ -37,12 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:car_stationwagon": {
-"generate/physics": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

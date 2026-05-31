@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://kukfmpoy01r6"
-path="res://.godot/imported/car_stationwagon.gltf-57f7b919c46570f9891285236f45fb59.scn"
+uid="uid://cbmksx7ow1x25"
+path="res://.godot/imported/nha13.glb-c552dac2901e771e551bc3c674056540.scn"
 
 [deps]
 
-source_file="res://Assests/gltf/car_stationwagon.gltf"
-dest_files=["res://.godot/imported/car_stationwagon.gltf-57f7b919c46570f9891285236f45fb59.scn"]
+source_file="res://Assests/nha13.glb"
+dest_files=["res://.godot/imported/nha13.glb-c552dac2901e771e551bc3c674056540.scn"]
 
 [params]
 
@@ -39,7 +39,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:car_stationwagon": {
+"PATH:building_G_withoutBase_Cube_945": {
 "generate/physics": true
 }
 }

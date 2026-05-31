@@ -8,6 +8,8 @@ const REASON_MESSAGES = {
 	"npc_hit_by_brick": "Bạn gái bị gạch rơi trúng!",
 	"player_caught": "Bạn bị bắt gặp!",
 	"time_up": "Hết giờ!",
+	"hit_by_car": "Bạn bị xe đâm!",
+	"npc_hit_by_car": "Bạn gái bị xe đâm!",
 }
 
 @onready var reason_label = $Panel/Label # thêm Label vào scene nếu muốn
