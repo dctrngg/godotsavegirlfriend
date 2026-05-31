@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ber7ybmolhcy4"
+path="res://.godot/imported/building_E.obj-ff0564dc3f91a7b0b670d0351f737105.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building_E.obj-ff0564dc3f91a7b0b670d0351f737105.mesh"]
+
+source_file="res://Assests/obj/building_E.obj"
+dest_files=["res://.godot/imported/building_E.obj-ff0564dc3f91a7b0b670d0351f737105.mesh", "res://.godot/imported/building_E.obj-ff0564dc3f91a7b0b670d0351f737105.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

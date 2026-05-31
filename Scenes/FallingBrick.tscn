@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dmkuwvpcwa028"]
+
+[ext_resource type="Script" uid="uid://buis0ysa45qqp" path="res://Scripts/falling_brick.gd" id="1_epcxg"]
+[ext_resource type="ArrayMesh" uid="uid://dbxfi4u6wh86f" path="res://Assests/obj/trash_A.obj" id="2_eovyw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dg6y0"]
+size = Vector3(0.74609375, 0.31515503, 0.7825928)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wj057"]
+height = 26.508179
+radius = 3.5429688
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_epcxg"]
+
+[node name="FallingBrick" type="RigidBody3D" unique_id=877245214]
+script = ExtResource("1_epcxg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1776192520]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+mesh = ExtResource("2_eovyw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=437341932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03125, 0.15016174, 0.03338623)
+shape = SubResource("BoxShape3D_dg6y0")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=618877640]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=182742140]
+transform = Transform3D(0.9999994, 0.00088854553, 0.00060746894, -0.00088861445, 0.9999995, 0.000111158115, -0.0006073681, -0.000111707595, 0.99999976, -0.01140244, -12.530451, 0.0014335103)
+shape = SubResource("CylinderShape3D_wj057")
+
+[node name="HitArea" type="Area3D" parent="." unique_id=2120212931]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea" unique_id=1080605821]
+shape = SubResource("BoxShape3D_epcxg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
