@@ -1,3 +1,7 @@
-res://Scenes/FallingBrick.tscn
 res://Scenes/World.tscn
-res://Scripts/world.gd
+res://Scenes/Pedestrian.tscn
+res://NPC.tscn
+res://Scripts/Player.gd
+res://Scripts/npc.gd
+res://Scripts/pedestrian.gd
+res://Scenes/Puddle.tscn

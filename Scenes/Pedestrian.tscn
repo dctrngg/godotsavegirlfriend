@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cv0s5x7gx5anv"]
+
+[ext_resource type="Script" uid="uid://66qpxwq202bl" path="res://Scripts/pedestrian.gd" id="1_dejow"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_neh7r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_neh7r"]
+
+[node name="Pedestrian" type="CharacterBody3D" unique_id=339474806]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_dejow")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2004823538]
+mesh = SubResource("CapsuleMesh_neh7r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1351386040]
+shape = SubResource("CapsuleShape3D_neh7r")

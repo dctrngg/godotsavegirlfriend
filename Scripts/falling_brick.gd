@@ -1,4 +1,3 @@
-# falling_brick.gd
 extends RigidBody3D
 
 signal game_over(reason: String)
@@ -9,23 +8,32 @@ var has_hit = false
 func _ready():
 	visible = true
 	freeze = true
+	
+	# Bật tính năng nhận diện va chạm của RigidBody3D
+	contact_monitor = true
+	max_contacts_reported = 5
+	
+	# Bật Continuous Collision Detection để chống lỗi xuyên thấu (Tunneling)
+	continuous_cd = true 
+	
+	# Nối tín hiệu va chạm của chính viên gạch
+	body_entered.connect(_on_brick_body_entered)
 
 func _on_area_3d_body_entered(body):
-	# Vùng trigger phía dưới — phát hiện người đi vào để thả gạch
+	# Trigger zone — thả gạch khi player/girlfriend đi vào
 	if triggered:
 		return
 	if body.is_in_group("player") or body.is_in_group("girlfriend"):
 		triggered = true
-		visible = true
-		
 		freeze = false
 
-func _on_hit_area_body_entered(body):
-	# Vùng va chạm của gạch — phát hiện gạch đập trúng ai
+func _on_brick_body_entered(body):
+	# Detect gạch đập trúng ai trực tiếp qua RigidBody3D
 	if has_hit:
 		return
-	if not triggered:  # chỉ tính khi gạch đang rơi
+	if not triggered:
 		return
+		
 	if body.is_in_group("player"):
 		has_hit = true
 		emit_signal("game_over", "hit_by_brick")

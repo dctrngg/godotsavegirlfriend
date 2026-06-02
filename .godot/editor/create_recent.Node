@@ -1,6 +1,8 @@
+RayCast3D
 CollisionShape3D
-Node
 MeshInstance3D
+CharacterBody3D
+Node
 Area3D
 FogVolume
 PathFollow3D

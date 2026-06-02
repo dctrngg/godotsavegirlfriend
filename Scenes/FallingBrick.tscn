@@ -11,7 +11,7 @@ height = 30.07016
 radius = 3.5429688
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_epcxg"]
-size = Vector3(1, 4.970276, 4.842163)
+size = Vector3(1.0653076, 4.83918, 5.663666)
 
 [node name="FallingBrick" type="RigidBody3D" unique_id=877245214]
 script = ExtResource("1_epcxg")
@@ -24,6 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029884338, 1.498621, -0.100
 shape = SubResource("BoxShape3D_dg6y0")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=618877640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8868265, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=182742140]
 transform = Transform3D(0.9999994, 0.00088854553, 0.00060746894, -0.00088861445, 0.9999995, 0.000111158115, -0.0006073681, -0.000111707595, 0.99999976, -0.009819949, -10.749461, 0.0012345602)
@@ -32,7 +33,7 @@ shape = SubResource("CylinderShape3D_wj057")
 [node name="HitArea" type="Area3D" parent="." unique_id=2120212931]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea" unique_id=1080605821]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.542572, -0.0095825195)
+transform = Transform3D(0.9999519, 0.009808593, 0, -0.009808593, 0.9999519, 0, 0, 0, 1, 0.008288098, 1.5972495, 0.17381287)
 shape = SubResource("BoxShape3D_epcxg")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
