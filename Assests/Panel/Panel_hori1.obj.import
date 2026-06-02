@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://lcopeqlss3r3"
+path="res://.godot/imported/Panel_hori1.obj-887608ccb36a7d45951c70b20d7247bf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Panel_hori1.obj-887608ccb36a7d45951c70b20d7247bf.mesh"]
+
+source_file="res://Assests/Panel/Panel_hori1.obj"
+dest_files=["res://.godot/imported/Panel_hori1.obj-887608ccb36a7d45951c70b20d7247bf.mesh", "res://.godot/imported/Panel_hori1.obj-887608ccb36a7d45951c70b20d7247bf.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

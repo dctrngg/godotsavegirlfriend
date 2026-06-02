@@ -7,7 +7,7 @@ var triggered = false
 var has_hit = false
 
 func _ready():
-	visible = false
+	visible = true
 	freeze = true
 
 func _on_area_3d_body_entered(body):

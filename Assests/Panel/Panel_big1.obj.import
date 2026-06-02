@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dy7gf1hdlvq18"
+path="res://.godot/imported/Panel_big1.obj-a4d5e8e74bdc94fcd10dc80b8bb0b685.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Panel_big1.obj-a4d5e8e74bdc94fcd10dc80b8bb0b685.mesh"]
+
+source_file="res://Assests/Panel/Panel_big1.obj"
+dest_files=["res://.godot/imported/Panel_big1.obj-a4d5e8e74bdc94fcd10dc80b8bb0b685.mesh", "res://.godot/imported/Panel_big1.obj-a4d5e8e74bdc94fcd10dc80b8bb0b685.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

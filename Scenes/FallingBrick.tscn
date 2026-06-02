@@ -1,37 +1,38 @@
-[gd_scene format=3 uid="uid://dmkuwvpcwa028"]
+[gd_scene format=3 uid="uid://gdyvms53ysmq"]
 
 [ext_resource type="Script" uid="uid://buis0ysa45qqp" path="res://Scripts/falling_brick.gd" id="1_epcxg"]
-[ext_resource type="ArrayMesh" uid="uid://dbxfi4u6wh86f" path="res://Assests/obj/trash_A.obj" id="2_eovyw"]
+[ext_resource type="ArrayMesh" uid="uid://swx1gmerpxoj" path="res://Assests/Panel/Panel_big.obj" id="2_epcxg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dg6y0"]
-size = Vector3(0.74609375, 0.31515503, 0.7825928)
+size = Vector3(1.6655426, 5.2091026, 4.9673767)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wj057"]
-height = 26.508179
+height = 30.07016
 radius = 3.5429688
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_epcxg"]
+size = Vector3(1, 4.970276, 4.842163)
 
 [node name="FallingBrick" type="RigidBody3D" unique_id=877245214]
 script = ExtResource("1_epcxg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1776192520]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
-mesh = ExtResource("2_eovyw")
+mesh = ExtResource("2_epcxg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=437341932]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03125, 0.15016174, 0.03338623)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029884338, 1.498621, -0.1006012)
 shape = SubResource("BoxShape3D_dg6y0")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=618877640]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=182742140]
-transform = Transform3D(0.9999994, 0.00088854553, 0.00060746894, -0.00088861445, 0.9999995, 0.000111158115, -0.0006073681, -0.000111707595, 0.99999976, -0.01140244, -12.530451, 0.0014335103)
+transform = Transform3D(0.9999994, 0.00088854553, 0.00060746894, -0.00088861445, 0.9999995, 0.000111158115, -0.0006073681, -0.000111707595, 0.99999976, -0.009819949, -10.749461, 0.0012345602)
 shape = SubResource("CylinderShape3D_wj057")
 
 [node name="HitArea" type="Area3D" parent="." unique_id=2120212931]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea" unique_id=1080605821]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.542572, -0.0095825195)
 shape = SubResource("BoxShape3D_epcxg")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
