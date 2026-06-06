@@ -13,7 +13,7 @@ var MAX_DISTANCE = 8.0
 var TIME_LIMIT = 3.0
 var time_too_far = 0.0
 
-var LOVE_TIMER_LIMIT = 10.0
+var LOVE_TIMER_LIMIT = 30.0
 var love_timer = 0.0
 var INTERACT_DISTANCE = 2.5
 

@@ -69,7 +69,15 @@ const REASON_MESSAGES = {
 	"Nhìn người ta chằm chằm thế, chưa ai dạy phép lịch sự à?",
 	"Mắt anh dính vào người ta rồi, em không ghen đâu đấy nhé!",
 	"Anh nhìn người ta lâu thế, thích hơn em à?"
-],
+	],
+	"hit_by_tree": [
+	"Cây đổ trúng đầu rồi, anh đi rừng mà không nhìn đường à?",
+	"Anh định làm người rừng Tarzan đấy à?",
+	],
+	"npc_hit_by_tree": [
+		"Anh để cây đổ trúng em thế à, đồ vô tâm!",
+		"Anh muốn em biến mất dưới gốc cây đúng không?",
+	],
 }
 
 @onready var reason_label = $Panel/Label

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ckw4tdxje8dxh"]
+
+[ext_resource type="Script" uid="uid://buis0ysa45qqp" path="res://Scripts/falling_brick.gd" id="1_f7gb0"]
+[ext_resource type="ArrayMesh" uid="uid://b04x40cv34q00" path="res://Assests/Tree/apple.obj" id="2_f7gb0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5jeah"]
+radius = 1.0214224
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wj057"]
+height = 29.566631
+radius = 1.3945313
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_epcxg"]
+size = Vector3(1.7527924, 1.6621876, 1.7953606)
+
+[node name="FallingBrick" type="RigidBody3D" unique_id=877245214]
+script = ExtResource("1_f7gb0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1776192520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36833525, 0, 0)
+mesh = ExtResource("2_f7gb0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=437341932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39381182, 0.016135335, 0.028123736)
+shape = SubResource("SphereShape3D_5jeah")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=618877640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8868265, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=182742140]
+transform = Transform3D(0.9999994, 0.00088854553, 0.00060746894, -0.00088861445, 0.9999995, 0.000111158115, -0.0006073681, -0.000111707595, 0.99999976, -0.5518767, -10.749009, -0.27760646)
+shape = SubResource("CylinderShape3D_wj057")
+
+[node name="HitArea" type="Area3D" parent="." unique_id=2120212931]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea" unique_id=1080605821]
+transform = Transform3D(0.9999519, 0.009808593, 0, -0.009808593, 0.9999519, 0, 0, 0, 1, -0.35179296, -0.066740036, -0.0038490295)
+shape = SubResource("BoxShape3D_epcxg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]

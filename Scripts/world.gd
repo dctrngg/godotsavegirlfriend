@@ -33,11 +33,14 @@ func _ready():
 	for puddle in get_tree().get_nodes_in_group("puddle"):
 		if not puddle.game_over.is_connected(_on_game_over):
 			puddle.game_over.connect(_on_game_over.bind(puddle))
-
-	# ← thêm đoạn này
+		
 	for pedestrian in get_tree().get_nodes_in_group("pedestrian"):
 		if not pedestrian.game_over.is_connected(_on_game_over):
 			pedestrian.game_over.connect(_on_game_over.bind(pedestrian))
+			
+	for tree in get_tree().get_nodes_in_group("falling_tree"):
+		if not tree.game_over.is_connected(_on_game_over):
+			tree.game_over.connect(_on_game_over.bind(tree))
 
 func _physics_process(delta):
 	get_tree().call_group("girlfriend", "update_target_location", player.global_transform.origin)

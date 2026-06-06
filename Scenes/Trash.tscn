@@ -1,42 +1,22 @@
 [gd_scene format=3 uid="uid://cgne5gvscdd75"]
 
-[ext_resource type="ArrayMesh" uid="uid://d2dwqktwa8rap" path="res://Assests/obj/dumpster.obj" id="2_nkago"]
-
-[sub_resource type="GDScript" id="GDScript_0mpj5"]
-script/source = "# puddle.gd
-extends Area3D
-
-signal game_over(reason: String)
-
-func _ready():
-	# Visible từ đầu, không cần ẩn
-	visible = true
-
-func _on_body_entered(body):
-	if body.is_in_group(\"player\"):
-		emit_signal(\"game_over\", \"stepped_in_trash\")
-	elif body.is_in_group(\"npc\"):
-		emit_signal(\"game_over\", \"npc_stepped_in_trash\")
-"
+[ext_resource type="Script" uid="uid://djffl06a6711y" path="res://Scripts/trash.gd" id="1_nkago"]
+[ext_resource type="ArrayMesh" uid="uid://dbxfi4u6wh86f" path="res://Assests/obj/trash_A.obj" id="2_nkago"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_l3lne"]
-height = 1.3154297
-radius = 2.8476563
+height = 0.42437744
+radius = 0.43798828
 
 [node name="Trash" type="Area3D" unique_id=1211401315]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-script = SubResource("GDScript_0mpj5")
+script = ExtResource("1_nkago")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1449715794]
-transform = Transform3D(5.907331, 0, 1.0504477, 0, 6, 0, -1.0504477, 0, 5.907331, -0.5738795, 0, 1.5185757)
+transform = Transform3D(5.907331, 0, 1.0504477, 0, 6, 0, -1.0504477, 0, 5.907331, -0.24695086, 0, -0.21299648)
 mesh = ExtResource("2_nkago")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=626284911]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17165089, 0.36883545, 0.046839714)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17165089, 0.116241455, -0.23759556)
 shape = SubResource("CylinderShape3D_l3lne")
-
-[node name="Dumpster" type="MeshInstance3D" parent="." unique_id=162975875]
-transform = Transform3D(-5.9999957, 0, 0.0071213245, 0, 6.000001, 0, -0.0071213245, 0, -5.9999957, 0.27247775, 0.028651714, -0.9803035)
-mesh = ExtResource("2_nkago")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,9 +1,12 @@
-RayCast3D
-CollisionShape3D
-MeshInstance3D
-CharacterBody3D
+CenterContainer
+Label
 Node
+CollisionShape3D
 Area3D
+MeshInstance3D
+StaticBody3D
+RayCast3D
+CharacterBody3D
 FogVolume
 PathFollow3D
 Path3D

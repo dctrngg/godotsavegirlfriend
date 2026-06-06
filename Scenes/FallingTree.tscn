@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://d2ip67bxepnp6"]
+
+[ext_resource type="Script" uid="uid://dxnaao1rhby0q" path="res://Scripts/falling_tree.gd" id="1_eig47"]
+[ext_resource type="ArrayMesh" uid="uid://bnxiy0cmh6ibh" path="res://Assests/Tree/tree_dead_1.mtl.obj" id="1_mwyll"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eig47"]
+radius = 0.26953125
+height = 2.5888672
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cnx2c"]
+height = 2.1831055
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eig47"]
+size = Vector3(0.40551758, 0.5673828, 1.8579102)
+
+[node name="FallingTree" type="StaticBody3D" unique_id=1740423408]
+script = ExtResource("1_eig47")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1686760918]
+mesh = ExtResource("1_mwyll")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1025854294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14160967, 1.2055664, 0.18285632)
+shape = SubResource("CapsuleShape3D_eig47")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=329340640]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1326044485]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.7818866, 0.23852539)
+shape = SubResource("CylinderShape3D_cnx2c")
+
+[node name="HitArea" type="Area3D" parent="." unique_id=1818828475]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea" unique_id=108363856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.051879883, 0.2163086, -0.63295114)
+shape = SubResource("BoxShape3D_eig47")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
