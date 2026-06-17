@@ -56,8 +56,8 @@ func _set_next_waypoint():
 
 func _physics_process(delta):
 	if player:
-		var dist = global_position.distance_to(player.global_position)
-		if dist > active_distance:
+		var dist_sq = global_position.distance_squared_to(player.global_position)
+		if dist_sq > active_distance * active_distance:
 			if is_active:
 				is_active = false
 				velocity = Vector3.ZERO

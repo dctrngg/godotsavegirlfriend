@@ -9,7 +9,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:/Users/anderson/Documents/forthanhtruc/godotsavegirlfriend/Assests/obj/citybits_texture.png
+map_Kd ../obj/citybits_texture.png
 
 newmtl citybits_texture.006
 Ns 360.000000
@@ -19,7 +19,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:/Users/anderson/Documents/forthanhtruc/godotsavegirlfriend/Assests/obj/citybits_texture.png
+map_Kd ../obj/citybits_texture.png
 
 newmtl citybits_texture.007
 Ns 360.000000
@@ -29,7 +29,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:/Users/anderson/Documents/forthanhtruc/godotsavegirlfriend/Assests/obj/citybits_texture.png
+map_Kd ../obj/citybits_texture.png
 
 newmtl citybits_texture.008
 Ns 360.000000
@@ -39,7 +39,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:/Users/anderson/Documents/forthanhtruc/godotsavegirlfriend/Assests/obj/citybits_texture.png
+map_Kd ../obj/citybits_texture.png
 
 newmtl citybits_texture.009
 Ns 360.000000
@@ -49,4 +49,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:/Users/anderson/Documents/forthanhtruc/godotsavegirlfriend/Assests/obj/citybits_texture.png
+map_Kd ../obj/citybits_texture.png

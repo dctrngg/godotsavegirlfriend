@@ -27,8 +27,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b2t57mf7fj0me" path="res://Assests/Panel/Panel_purple.obj" id="19_xm6am"]
 [ext_resource type="ArrayMesh" uid="uid://bgty3roxaa8j6" path="res://Assests/Panel/Panel_till.obj" id="20_tutfb"]
 [ext_resource type="ArrayMesh" uid="uid://bsq4j6jxxhnfd" path="res://Assests/Panel/Panel_big2.obj" id="21_s73dv"]
-[ext_resource type="Script" path="res://Scripts/path_follow_3d.gd" id="22_lxtj3"]
-[ext_resource type="ArrayMesh" uid="uid://bmbpfsiot2o5t" path="res://Assests/Car/taxi.obj" id="23_0lmv0"]
+[ext_resource type="Script" uid="uid://fpjlv8b0qpxh" path="res://Scripts/path_follow_3d.gd" id="22_lxtj3"]
 [ext_resource type="ArrayMesh" uid="uid://bdwavb51rixwg" path="res://Assests/Car/bluje.obj" id="24_uoh4w"]
 [ext_resource type="ArrayMesh" uid="uid://ul3i2ye31sm8" path="res://Assests/Car/green.obj" id="25_372dg"]
 [ext_resource type="ArrayMesh" uid="uid://bkwggfn2s1yit" path="res://Assests/Car/policeee.obj" id="26_3spdv"]
@@ -199,11 +198,6 @@ visible = false
 material_override = ExtResource("5_gwaj6")
 use_collision = true
 size = Vector3(500, 0, 500)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="NavigationRegion3D/Map" unique_id=1343654198]
-transform = Transform3D(-0.8660235, -0.43301612, 0.25000077, 0, 0.4999982, 0.86602646, -0.50000334, 0.7499992, -0.4330102, 0, 0, 0)
-light_color = Color(1.5, 0.85, 0.3, 1)
-shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="NavigationRegion3D/Map" unique_id=257435304]
 environment = SubResource("Environment_g2h84")
@@ -552,6 +546,13 @@ transform = Transform3D(0.99999934, 0.00088854664, 0.0006074672, -0.0008886144, 
 [node name="HitArea" parent="FallingNode/FallingBrick9" index="3" unique_id=2120212931]
 collision_layer = 16777215
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1343654198]
+transform = Transform3D(-0.8660235, -0.43301612, 0.25000077, 0, 0.4999982, 0.86602646, -0.50000334, 0.7499992, -0.4330102, -0.62408066, -2.6824594, -1.7566442)
+light_color = Color(1.4070374, 0.9142572, 0.39646885, 1)
+light_energy = 0.3
+light_indirect_energy = 0.975
+shadow_enabled = true
+
 [node name="CarPath" type="Node" parent="." unique_id=176163062]
 
 [node name="Path3D" type="Path3D" parent="CarPath" unique_id=208891663]
@@ -559,14 +560,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.961789, 0.81462073, -14.08
 curve = SubResource("Curve3D_ivbkn")
 
 [node name="Car_1_x" type="PathFollow3D" parent="CarPath/Path3D" unique_id=1773564047 groups=["car"]]
-transform = Transform3D(0.0011793062, 0.0017219203, -0.9999496, 5.8202408e-11, 0.9999893, 0.0017218546, 0.9999089, -2.0309144e-06, 0.001179354, -60, 0.2, 0.307)
+transform = Transform3D(0.0011793058, 0.0017219203, -0.9999493, 5.820239e-11, 0.9999893, 0.001721854, 0.9999086, -2.0309144e-06, 0.0011793537, -60, 0.2, 0.307)
 script = ExtResource("22_lxtj3")
 max_speed = 10.0
 start_offset = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CarPath/Path3D/Car_1_x" unique_id=2112844304]
 transform = Transform3D(-6, 0, -9.0597484e-07, 0, 6, 0, 9.0597484e-07, 0, -6, 0, 0, 0)
-mesh = ExtResource("23_0lmv0")
+mesh = ExtResource("24_uoh4w")
 
 [node name="Area3D" type="Area3D" parent="CarPath/Path3D/Car_1_x" unique_id=182718389]
 
@@ -575,7 +576,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01813221, 0.71655273, 0.16
 shape = SubResource("BoxShape3D_ivfu3")
 
 [node name="Car_1_x2" type="PathFollow3D" parent="CarPath/Path3D" unique_id=1700711379 groups=["car"]]
-transform = Transform3D(0.0011793061, 0.0017219202, -0.9999495, 5.8202405e-11, 0.9999892, 0.0017218544, 0.99990886, -2.0309144e-06, 0.001179354, -60, 0.2, 0.307)
+transform = Transform3D(0.0011793057, 0.0017219202, -0.9999492, 5.8202387e-11, 0.9999892, 0.0017218539, 0.99990857, -2.0309144e-06, 0.0011793537, -60, 0.2, 0.307)
 script = ExtResource("22_lxtj3")
 max_speed = 11.0
 
@@ -590,7 +591,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01813221, 0.71655273, 0.16
 shape = SubResource("BoxShape3D_ivfu3")
 
 [node name="Car_1_x3" type="PathFollow3D" parent="CarPath/Path3D" unique_id=395843738 groups=["car"]]
-transform = Transform3D(0.001179306, 0.0017219202, -0.99994946, 5.82024e-11, 0.9999892, 0.0017218543, 0.9999088, -2.0309144e-06, 0.0011793539, -60, 0.2, 0.307)
+transform = Transform3D(0.0011793056, 0.0017219202, -0.99994916, 5.8202384e-11, 0.9999892, 0.0017218539, 0.9999085, -2.0309144e-06, 0.0011793536, -60, 0.2, 0.307)
 script = ExtResource("22_lxtj3")
 max_speed = 10.0
 start_offset = -2.0

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccmnny1wprxw"
 path.s3tc="res://.godot/imported/nha7_citybits_texture.png-5b58e5c0e96ae1bc5ce6198710f59202.s3tc.ctex"
+path.etc2="res://.godot/imported/nha7_citybits_texture.png-5b58e5c0e96ae1bc5ce6198710f59202.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assests/new folder/nha7_citybits_texture.png"
-dest_files=["res://.godot/imported/nha7_citybits_texture.png-5b58e5c0e96ae1bc5ce6198710f59202.s3tc.ctex"]
+dest_files=["res://.godot/imported/nha7_citybits_texture.png-5b58e5c0e96ae1bc5ce6198710f59202.s3tc.ctex", "res://.godot/imported/nha7_citybits_texture.png-5b58e5c0e96ae1bc5ce6198710f59202.etc2.ctex"]
 
 [params]
 

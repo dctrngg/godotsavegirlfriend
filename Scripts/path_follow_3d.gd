@@ -11,12 +11,19 @@ signal game_over(reason: String)
 var current_speed: float = 0.0
 var waiting: bool = false
 
+var _sibling_cars: Array = []
+
 func _ready():
 	if start_offset < 0:
 		progress_ratio = randf()
 	else:
 		progress_ratio = start_offset
 	current_speed = max_speed
+	
+	# Cache danh sách các xe khác để tối ưu, không gọi get_children() mỗi frame
+	for child in get_parent().get_children():
+		if child is PathFollow3D and child != self:
+			_sibling_cars.append(child)
 
 func _process(delta):
 	if waiting:
@@ -44,13 +51,10 @@ func _process(delta):
 		_wait_random()
 
 func _get_car_ahead() -> PathFollow3D:
-	var siblings = get_parent().get_children()
 	var closest: PathFollow3D = null
 	var closest_gap = INF
 
-	for car in siblings:
-		if car == self or not car is PathFollow3D:
-			continue
+	for car in _sibling_cars:
 		var gap = _get_gap(car)
 		# Chỉ tính xe phía trước (gap dương)
 		if gap > 0 and gap < closest_gap:
