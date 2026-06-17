@@ -43,12 +43,5 @@ func _physics_process(delta):
 			reason = "npc_hit_by_streetlight"
 		
 		if reason != "":
-			# Tìm player để gọi death camera nhìn về cột đèn
-			var player = get_tree().get_first_node_in_group("player")
-			if player and player.has_method("start_death_camera"):
-				player.start_death_camera(global_position, func():
-					emit_signal("game_over", reason)
-				)
-			else:
-				emit_signal("game_over", reason)
+			emit_signal("game_over", reason)
 		fall_target = null

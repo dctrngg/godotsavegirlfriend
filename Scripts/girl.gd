@@ -41,14 +41,6 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 			return result
 	return null
 
-func _find_animation_player(node: Node) -> AnimationPlaye	r:
-	if node is AnimationPlayer:
-		return node
-	for child in node.get_children():
-		var result = _find_animation_player(child)
-		if result:
-			return result
-	return null
 
 func _generate_waypoints():
 	var center = global_position

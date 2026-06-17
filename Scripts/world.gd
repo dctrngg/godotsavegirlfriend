@@ -11,15 +11,17 @@ const GIRLFRIEND_REASONS = [
 	"npc_hit_by_brick",
 	"npc_hit_by_car",
 	"npc_stepped_in_puddle",
-	"npc_hit_by_streetlight"
+	"npc_hit_by_streetlight",
+	"npc_hit_by_tree"
 ]
 
 const SOURCE_REASONS = [
 	"hit_by_brick",
 	"hit_by_car",
 	"stepped_in_puddle",
-	"caught_staring",  # ← thêm vào đây
-	"hit_by_streetlight",    # ← thêm vào đây
+	"caught_staring",
+	"hit_by_streetlight",
+	"hit_by_tree"
 ]
 
 func _ready():
@@ -52,7 +54,7 @@ func _ready():
 			light.game_over.connect(_on_game_over.bind(light))
 
 func _physics_process(delta):
-	get_tree().call_group("girlfriend", "update_target_location", player.global_transform.origin)
+	pass
 
 func _on_game_over(reason: String, source_node: Node):
 	# 1. PHÁT ÂM THANH THUA NGAY LẬP TỨC TRƯỚC KHI LÀM BẤT CỨ ĐIỀU GÌ KHÁC!

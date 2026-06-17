@@ -121,10 +121,6 @@ func _check_stare():
 			
 			current_target = hit
 			current_target.start_watching()
-			
-			# KẾT NỐI TÍN HIỆU: Lắng nghe sự kiện game_over từ người lạ này
-			if current_target.has_signal("game_over") and not current_target.game_over.is_connected(_on_npc_game_over):
-				current_target.game_over.connect(_on_npc_game_over)
 	else:
 		if current_target:
 			_cleanup_current_target()
@@ -133,28 +129,11 @@ func _check_stare():
 # Hàm bổ trợ để dọn dẹp kết nối cũ khi quay xe nhìn đi chỗ khác
 func _cleanup_current_target():
 	if current_target:
-		if current_target.game_over.is_connected(_on_npc_game_over):
-			current_target.game_over.disconnect(_on_npc_game_over)
 		current_target.stop_watching()
 		current_target = null
 
 
-# Hàm xử lý khi NPC phát tín hiệu Game Over
-func _on_npc_game_over(reason: String):
-	if is_dead:
-		return
-		
-	# 1. Gọi hàm hiệu ứng xoay camera về phía NPC tội đồ (chạy trong 1.5 giây)
-	start_death_camera(current_target.global_position, func():
-		# 2. Callback này sẽ TỰ ĐỘNG CHẠY sau khi camera đã xoay xong xuôi!
-		# Tìm Node UI Game Over trong Scene Tree để kích hoạt popup
-		var game_over_ui = get_tree().root.find_child("GameOverUI", true, false)
-		
-		if game_over_ui:
-			game_over_ui.show_popup(reason)
-		else:
-			print("LỖI: Không tìm thấy node mang tên 'GameOverUI' trong Scene Tree!")
-	)
+
 
 
 func _headbob(time) -> Vector3:
