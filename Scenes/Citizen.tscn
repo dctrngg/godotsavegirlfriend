@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b5g3knyt58txd"]
+
+[ext_resource type="Script" uid="uid://dwk8biwx006c3" path="res://Scripts/citizen.gd" id="1_qc8p4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cbg8l"]
+
+[node name="Citizen" type="CharacterBody3D" unique_id=446875424]
+script = ExtResource("1_qc8p4")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=783712075]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=925088788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95464325, 0)
+shape = SubResource("CapsuleShape3D_cbg8l")

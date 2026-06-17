@@ -1,0 +1,15 @@
+AudioStreamPlayer3D
+Label
+Panel
+CanvasLayer
+TextureButton
+VBoxContainer
+Node
+CollisionShape3D
+NavigationAgent3D
+CharacterBody3D
+MeshInstance3D
+Area3D
+RigidBody3D
+CenterContainer
+StaticBody3D

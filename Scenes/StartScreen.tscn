@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://u15vdipjdeyd"]
+
+[ext_resource type="Texture2D" uid="uid://ce85rqk0hdsv" path="res://Assests/Basic_GUI_Bundle/BoxesBanners/Box_Orange_Rounded.png" id="1_ey7n4"]
+[ext_resource type="Script" uid="uid://dwkuxrd5w5546" path="res://Scripts/start_screen.gd" id="1_ogpyo"]
+[ext_resource type="Texture2D" uid="uid://bspspdoact07g" path="res://Assests/Basic_GUI_Bundle/BoxesBanners/Banner_Green.png" id="2_6mw8b"]
+[ext_resource type="Texture2D" uid="uid://cgbyka1mgb1la" path="res://Assests/Basic_GUI_Bundle/ButtonsText/exit_hover.png" id="3_kehkj"]
+[ext_resource type="Texture2D" uid="uid://xs4dephni3ux" path="res://Assests/Basic_GUI_Bundle/BoxesBanners/TextBox_Blank_Side.png" id="4_anxsw"]
+[ext_resource type="Texture2D" uid="uid://dvcf7aexw4bix" path="res://Assests/Basic_GUI_Bundle/BoxesBanners/boy(1).png" id="5_ogpyo"]
+[ext_resource type="Texture2D" uid="uid://g34ttmfns5ch" path="res://Assests/Basic_GUI_Bundle/start.png" id="6_aae8c"]
+[ext_resource type="Texture2D" uid="uid://mqshtgakr3u6" path="res://Assests/Basic_GUI_Bundle/start_hover.png" id="7_6mw8b"]
+[ext_resource type="Texture2D" uid="uid://bpfsl65cxnrvc" path="res://Assests/Basic_GUI_Bundle/setting.png" id="8_anxsw"]
+[ext_resource type="Texture2D" uid="uid://jg57udrqm0tc" path="res://Assests/Basic_GUI_Bundle/setting_hover.png" id="9_ogpyo"]
+
+[node name="StartScreen" type="CanvasLayer" unique_id=1508187903]
+script = ExtResource("1_ogpyo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1759956829]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 179.0
+offset_right = 20.0
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+alignment = 1
+
+[node name="BoxOrangeRounded" type="Sprite2D" parent="VBoxContainer" unique_id=844425457]
+position = Vector2(7.6293945e-06, -102)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_ey7n4")
+
+[node name="BannerGreen" type="Sprite2D" parent="VBoxContainer" unique_id=1817649452]
+position = Vector2(1, -565.71423)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_6mw8b")
+
+[node name="ExitHover" type="Sprite2D" parent="VBoxContainer" unique_id=905318090]
+position = Vector2(0, -575.5714)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_kehkj")
+
+[node name="TextBoxBlankSide" type="Sprite2D" parent="VBoxContainer" unique_id=1769663835]
+position = Vector2(657.06, -657.4823)
+rotation = 0.36971566
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_anxsw")
+
+[node name="Boy(1)" type="Sprite2D" parent="VBoxContainer" unique_id=628813262]
+position = Vector2(659.06006, -674.48236)
+rotation = 0.35885316
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_ogpyo")
+
+[node name="StartButton" type="TextureButton" parent="." unique_id=28891275]
+offset_left = 528.00006
+offset_top = 522.0
+offset_right = 1687.0
+offset_bottom = 880.0
+scale = Vector2(0.5286618, 0.5286618)
+pivot_offset = Vector2(230, 173)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_aae8c")
+texture_pressed = ExtResource("7_6mw8b")
+texture_hover = ExtResource("7_6mw8b")
+
+[node name="Setting" type="TextureButton" parent="." unique_id=447526216]
+offset_left = 528.00006
+offset_top = 667.0
+offset_right = 1687.0
+offset_bottom = 1025.0
+scale = Vector2(0.5286618, 0.5286618)
+pivot_offset = Vector2(230, 173)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("8_anxsw")
+texture_pressed = ExtResource("9_ogpyo")
+texture_hover = ExtResource("9_ogpyo")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Setting" to="." method="_on_start_button_pressed"]

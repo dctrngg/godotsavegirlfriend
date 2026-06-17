@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://commgl1kxrqnn"]
+
+[node name="DialogueUi" type="CanvasLayer" unique_id=1625227624]
+
+[node name="Panel" type="Panel" parent="." unique_id=280327737]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 563.0
+offset_top = 974.0
+offset_right = -396.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpeakerLabel" type="Label" parent="Panel" unique_id=715633750]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "bạn gái"
+
+[node name="DialogueLabel" type="Label" parent="Panel" unique_id=1067557741]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 966.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 36
+autowrap_mode = 3
+
+[node name="NextIndicator" type="Label" parent="Panel" unique_id=1590695011]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

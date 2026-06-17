@@ -5,6 +5,7 @@ const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
 const JUMP_VELOCITY = 4.8
 const SENSITIVITY = 0.002
+const JOY_SENSITIVITY = 0.03 # Độ nhạy khi xoay bằng cần gạt tay cầm
 const MAX_STARE_DISTANCE = 5.0
 
 const BOB_FREQ = 2.4
@@ -31,6 +32,8 @@ func _ready():
 func _unhandled_input(event):
 	if is_dead:
 		return
+	
+	# Xử lý xoay camera bằng chuột (PC)
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
@@ -41,17 +44,32 @@ func _physics_process(delta):
 	if is_dead:
 		return
 
+	# --- XỬ LÝ XOAY CAMERA BẰNG TAY CẦM (JOYPAD) ---
+	var joy_look = Vector2.ZERO
+	joy_look.x = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
+	joy_look.y = Input.get_action_strength("look_down") - Input.get_action_strength("look_up")
+	
+	if joy_look.length() > 0.0:
+		head.rotate_y(-joy_look.x * JOY_SENSITIVITY)
+		camera.rotate_x(-joy_look.y * JOY_SENSITIVITY)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+	# -----------------------------------------------
+
+	# Xử lý trọng lực
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
+	# Xử lý Nhảy
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
+	# Xử lý Tốc độ Chạy/Đi bộ
 	if Input.is_action_pressed("sprint"):
 		speed = SPRINT_SPEED
 	else:
 		speed = WALK_SPEED
 
+	# Xử lý di chuyển Di chuyển
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	var direction = (head.transform.basis * transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
@@ -65,11 +83,22 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 	
+	# Hiệu ứng Headbob
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 	
 	move_and_slide()
 	_check_stare()
+	
+	# --- XỬ LÝ NÚT TƯƠNG TÁC (ẤN E HOẶC NÚT TAY CẦM) ---
+	if Input.is_action_just_pressed("interact"):
+		if current_target:
+			print("Đã nhấn tương tác với: ", current_target.name)
+			# Nếu NPC của bạn có hàm nhận tương tác, bạn có thể gọi ở đây:
+			# if current_target.has_method("interact"):
+			#     current_target.interact()
+	# ---------------------------------------------------
+
 
 func _check_stare():
 	if not ray or not ray.is_colliding():
@@ -100,6 +129,7 @@ func _check_stare():
 		if current_target:
 			_cleanup_current_target()
 
+
 # Hàm bổ trợ để dọn dẹp kết nối cũ khi quay xe nhìn đi chỗ khác
 func _cleanup_current_target():
 	if current_target:
@@ -107,6 +137,7 @@ func _cleanup_current_target():
 			current_target.game_over.disconnect(_on_npc_game_over)
 		current_target.stop_watching()
 		current_target = null
+
 
 # Hàm xử lý khi NPC phát tín hiệu Game Over
 func _on_npc_game_over(reason: String):
@@ -124,6 +155,8 @@ func _on_npc_game_over(reason: String):
 		else:
 			print("LỖI: Không tìm thấy node mang tên 'GameOverUI' trong Scene Tree!")
 	)
+
+
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
@@ -131,8 +164,7 @@ func _headbob(time) -> Vector3:
 	return pos
 
 
-func start_death_camera(target_pos: Vector3, on_complete: Callable, duration: float = 1.5):
-	# Set PROCESS_MODE_ALWAYS để tween tiếp tục chạy dù game bị pause
+func start_death_camera(target_pos: Vector3, on_complete: Callable, duration: float = 1.5, offset_angle: float = 30.0):
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	is_dead = true
 	velocity = Vector3.ZERO
@@ -147,9 +179,11 @@ func start_death_camera(target_pos: Vector3, on_complete: Callable, duration: fl
 
 	var d = fmod(target_raw - cur, TAU)
 	if d > PI: d -= TAU
-	elif d < -PI: d += TAU
+	elif cur < -PI: d += TAU
 
-	var target_head_y = head.rotation.y + d
+	# Lệch sang trái để nguyên nhân nằm bên phải màn hình
+	var offset_rad = deg_to_rad(offset_angle)
+	var target_head_y = head.rotation.y + d - offset_rad
 
 	var dh = Vector2(to_target.x, to_target.z).length()
 	var target_cam_x = clamp(atan2(to_target.y, dh), deg_to_rad(-80), deg_to_rad(60))

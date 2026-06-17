@@ -1,20 +1,70 @@
 [gd_scene format=3 uid="uid://bsysifo0edqi7"]
 
 [ext_resource type="Script" uid="uid://sepkx7prn5jp" path="res://Scripts/npc.gd" id="1_twre2"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ll5ud"]
+[ext_resource type="PackedScene" uid="uid://b3bt32vs8103w" path="res://Assests/girlfriend.glb" id="2_ll5ud"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u1jv5"]
 
 [node name="girlfriend" type="CharacterBody3D" unique_id=544157555 groups=["girlfriend"]]
+transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, 0, 0, 0)
 script = ExtResource("1_twre2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1834322120]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_ll5ud")
+[node name="InteractLabel" type="Label3D" parent="." unique_id=2112922039]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -0.012663364, -0.9083483, 0.17843345)
+offset = Vector2(0, 500)
+billboard = 1
+text = "[E] I love you 💕
+"
+vertical_alignment = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1417020283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_u1jv5")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1365683232]
+
+[node name="girlfriend" parent="." unique_id=1044852634 instance=ExtResource("2_ll5ud")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="girlfriend/Armature" parent_id_path=PackedInt32Array(1044852634, 947542833) index="0" unique_id=1926516214]
+bones/0/position = Vector3(0.13764572, 0.93589115, -89.95785)
+bones/0/rotation = Quaternion(-0.72652125, -0.07610485, -0.041019343, 0.68168354)
+bones/1/rotation = Quaternion(-0.037890956, -0.0083395345, 0.08499347, 0.99562585)
+bones/2/rotation = Quaternion(0.013750508, -0.0014606785, 0.022768473, 0.9996452)
+bones/3/rotation = Quaternion(0.014052144, -0.0033148858, 0.022225384, 0.99964875)
+bones/4/rotation = Quaternion(0.05013689, -0.00065874046, -0.053862747, 0.99728864)
+bones/5/rotation = Quaternion(-0.088197134, -0.01071982, 0.0047349525, 0.9960341)
+bones/7/rotation = Quaternion(-0.6175224, -0.37760574, 0.55265206, -0.4131049)
+bones/8/position = Vector3(-1.0635964e-06, 9.433808, 2.7538517e-06)
+bones/8/rotation = Quaternion(0.550304, -0.030462649, -0.097805254, 0.8286565)
+bones/9/position = Vector3(6.503485e-07, 25.989708, 9.098683e-06)
+bones/9/rotation = Quaternion(0.009884554, -0.0001326485, 0.18788724, 0.9821409)
+bones/10/rotation = Quaternion(0.01823554, 0.23459674, 0.05787517, 0.97019714)
+bones/11/rotation = Quaternion(0.077410325, 0.066189304, 0.1631228, 0.9813347)
+bones/12/rotation = Quaternion(0.022575118, -0.004329823, -0.09951999, 0.99477005)
+bones/13/rotation = Quaternion(-0.017741378, -0.090330504, 0.12172532, 0.98828566)
+bones/15/rotation = Quaternion(0.094617866, -0.0010273178, 0.02787012, 0.9951229)
+bones/16/rotation = Quaternion(0.11257216, 0.0007397004, -0.013264152, 0.9935548)
+bones/17/rotation = Quaternion(0.13616703, 0.00096519175, -0.0015872023, 0.99068415)
+bones/18/position = Vector3(-0.057929754, 2.4157755, 8.34465e-07)
+bones/19/rotation = Quaternion(0.610851, -0.38003674, 0.56813425, 0.3995707)
+bones/20/rotation = Quaternion(0.4403112, -0.056542397, 0.05062578, 0.89463186)
+bones/21/position = Vector3(1.6331752e-06, 25.988495, 1.2627852e-06)
+bones/21/rotation = Quaternion(0.010276114, 0.00011765747, -0.24077547, 0.97052646)
+bones/22/rotation = Quaternion(0.0022959656, -0.23022725, -0.01107428, 0.9730712)
+bones/23/rotation = Quaternion(0.07356971, -0.077865236, -0.1512651, 0.9826716)
+bones/24/rotation = Quaternion(0.018812913, 0.043051403, 0.2292024, 0.97224426)
+bones/25/rotation = Quaternion(-0.0014562357, -0.0050034756, -0.24311608, 0.9699833)
+bones/27/rotation = Quaternion(0.19300058, -0.0014381515, 0.00047999513, 0.98119754)
+bones/28/rotation = Quaternion(0.090378195, -0.0004951616, 0.011847594, 0.995837)
+bones/29/rotation = Quaternion(0.13357526, -0.0014059031, -0.0023352043, 0.9910349)
+bones/31/rotation = Quaternion(0.063454695, 0.10000425, 0.9872893, -0.105983876)
+bones/32/rotation = Quaternion(-0.30253085, -0.06615431, -0.0015721862, 0.9508398)
+bones/33/rotation = Quaternion(0.65778553, -0.08090376, 0.00011120645, 0.7488476)
+bones/34/rotation = Quaternion(0.22884412, 0.021937938, -0.0049527953, 0.97320324)
+bones/36/rotation = Quaternion(-0.068202436, 0.00060828234, 0.99437916, -0.08098275)
+bones/37/rotation = Quaternion(-0.14375217, 0.050545566, 0.016893694, 0.9881777)
+bones/38/rotation = Quaternion(0.6076905, 0.038237073, -0.021470323, 0.7929623)
+bones/39/rotation = Quaternion(0.23271616, -0.020052692, 0.0050043985, 0.972325)
+
+[editable path="girlfriend"]

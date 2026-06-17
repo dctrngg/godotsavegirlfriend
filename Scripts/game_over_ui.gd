@@ -66,36 +66,114 @@ const REASON_MESSAGES = {
 		"Chừa cái tội vừa đi vừa nhìn cô khác nhé, lao vào đống rác rồi kìa!"
 	],
 	"caught_staring": [
-	"Nhìn người ta chằm chằm thế, chưa ai dạy phép lịch sự à?",
-	"Mắt anh dính vào người ta rồi, em không ghen đâu đấy nhé!",
-	"Anh nhìn người ta lâu thế, thích hơn em à?"
+		"Nhìn người ta chằm chằm thế, chưa ai dạy phép lịch sự à?",
+		"Mắt anh dính vào người ta rồi, em không ghen đâu đấy nhé!",
+		"Anh nhìn người ta lâu thế, thích hơn em à?"
 	],
 	"hit_by_tree": [
-	"Cây đổ trúng đầu rồi, anh đi rừng mà không nhìn đường à?",
-	"Anh định làm người rừng Tarzan đấy à?",
+		"Cây đổ trúng đầu rồi, anh đi rừng mà không nhìn đường à?",
+		"Anh định làm người rừng Tarzan đấy à?",
 	],
 	"npc_hit_by_tree": [
 		"Anh để cây đổ trúng em thế à, đồ vô tâm!",
 		"Anh muốn em biến mất dưới gốc cây đúng không?",
 	],
+	"hit_by_streetlight": [
+		"Cột đèn đổ trúng đầu rồi, đau không đồ ngốc!",
+		"Anh định thách đấu với cột đèn à? Thua rồi nhé!",
+	],
+	"npc_hit_by_streetlight": [
+		"Anh để cột đèn đổ trúng em thế à? Đồ tệ!",
+		"Bảo vệ bạn gái kiểu gì vậy trời!",
+	],
 }
 
 @onready var reason_label = $Panel/Label
+
+# ========= SOUND EFFECTS =========
+# Kéo file âm thanh (.wav/.ogg) tương ứng vào từng ô ở tab Inspector 
+# trong Godot.
+
+@export_group("SFX theo nguyên nhân thua")
+@export var sfx_npc_too_far: AudioStream
+@export var sfx_no_love: AudioStream
+@export var sfx_hit_by_brick: AudioStream
+@export var sfx_npc_hit_by_brick: AudioStream
+@export var sfx_player_caught: AudioStream
+@export var sfx_time_up: AudioStream
+@export var sfx_hit_by_car: AudioStream
+@export var sfx_npc_hit_by_car: AudioStream
+@export var sfx_stepped_in_puddle: AudioStream
+@export var sfx_npc_stepped_in_puddle: AudioStream
+@export var sfx_npc_stepped_in_trash: AudioStream
+@export var sfx_stepped_in_trash: AudioStream
+@export var sfx_caught_staring: AudioStream
+@export var sfx_hit_by_tree: AudioStream
+@export var sfx_npc_hit_by_tree: AudioStream
+@export var sfx_hit_by_streetlight: AudioStream
+@export var sfx_npc_hit_by_streetlight: AudioStream
+
+# Dictionary map reason -> AudioStream, được build trong _ready() từ các ô export ở trên
+var _reason_sounds: Dictionary = {}
+
+# Player phát âm thanh, tạo bằng code nên không cần thêm node thủ công trong scene
+var _reason_sound_player: AudioStreamPlayer
 
 func _ready():
 	visible = false
 	# PROCESS_MODE_ALWAYS để UI vẫn hiện được dù game paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
+	_reason_sound_player = AudioStreamPlayer.new()
+	add_child(_reason_sound_player)
+	# Để player vẫn phát được âm thanh dù game đang paused
+	_reason_sound_player.process_mode = Node.PROCESS_MODE_ALWAYS
+
+	_reason_sounds = {
+		"npc_too_far": sfx_npc_too_far,
+		"no_love": sfx_no_love,
+		"hit_by_brick": sfx_hit_by_brick,
+		"npc_hit_by_brick": sfx_npc_hit_by_brick,
+		"player_caught": sfx_player_caught,
+		"time_up": sfx_time_up,
+		"hit_by_car": sfx_hit_by_car,
+		"npc_hit_by_car": sfx_npc_hit_by_car,
+		"stepped_in_puddle": sfx_stepped_in_puddle,
+		"npc_stepped_in_puddle": sfx_npc_stepped_in_puddle,
+		"npc_stepped_in_trash": sfx_npc_stepped_in_trash,
+		"stepped_in_trash": sfx_stepped_in_trash,
+		"caught_staring": sfx_caught_staring,
+		"hit_by_tree": sfx_hit_by_tree,
+		"npc_hit_by_tree": sfx_npc_hit_by_tree,
+		"hit_by_streetlight": sfx_hit_by_streetlight,
+		"npc_hit_by_streetlight": sfx_npc_hit_by_streetlight,
+	}
+
+# Hàm kích hoạt âm thanh độc lập ngay khi vừa chạm, được gọi từ world.gd
+func play_sfx_only(reason: String) -> void:
+	_play_reason_sound(reason)
+
 func show_popup(reason: String = ""):
+	# Đã loại bỏ hoàn toàn việc gọi âm thanh ở đây để không bị trùng lặp tiếng
 	if reason_label and REASON_MESSAGES.has(reason):
 		# Sử dụng pick_random() để lấy ngẫu nhiên 1 câu trong danh sách mảng dữ liệu
 		var messages = REASON_MESSAGES[reason]
 		reason_label.text = messages.pick_random()
-		
+
 	visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().paused = true
+
+# Phát SFX theo nguyên nhân thua
+func _play_reason_sound(reason: String) -> void:
+	var sound: AudioStream = _reason_sounds.get(reason)
+	if sound:
+		# Đảm bảo Node phát âm thanh luôn hoạt động bất chấp trạng thái pause của game
+		if _reason_sound_player.process_mode != Node.PROCESS_MODE_ALWAYS:
+			_reason_sound_player.process_mode = Node.PROCESS_MODE_ALWAYS
+			
+		_reason_sound_player.stream = sound
+		_reason_sound_player.play()
 
 func _on_retry_button_pressed():
 	get_tree().paused = false
