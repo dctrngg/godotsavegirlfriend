@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bc0kex4ptf3nv"]
 
-[ext_resource type="Script" uid="uid://dbh12nv4vyph1" path="res://Scripts/puddle.gd" id="1_4jvy7"]
+[ext_resource type="Script" uid="uid://dt3edcthhkvxw" path="res://Scripts/theend.gd" id="1_4jvy7"]
 [ext_resource type="ArrayMesh" uid="uid://wlsho42doaqj" path="res://Assests/water/Low Poly Water1.obj" id="2_qr23n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4jvy7"]

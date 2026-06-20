@@ -3,7 +3,7 @@ extends CanvasLayer
 const REASON_MESSAGES = {
 	"npc_too_far": [
 		"Anh định bỏ rơi em thật à? Đồ tồi!",
-		"Chân em ngắn anh phải đợi chứ, đồ vô tâm!",
+		"Là anh có thật sự quan tâm em hông vậy!",
 		"Hóa ra em chỉ là người thừa trong cuộc đời anh thôi đúng không?",
 		"Anh đi luôn đi, đừng bao giờ quay lại nhìn em nữa!"
 	],
@@ -14,25 +14,23 @@ const REASON_MESSAGES = {
 		"Vô tâm nó vừa vừa thôi chứ, một câu yêu em khó thế sao?"
 	],
 	"hit_by_brick": [
-		"Đã bảo nhìn lên trên rồi mà, anh ngốc quá đi!",
-		"Anh định dùng đầu để thử độ cứng của gạch à?",
+		"Đã bảo nhìn lên trên rồi mà",
+		"Anh định dùng đầu để thử độ cứng à?",
 		"Hậu đậu thế này thì làm sao mà bảo vệ được em cơ chứ!",
-		"Gạch rơi trúng đầu rồi, có làm sao không đồ ngốc này?"
 	],
 	"npc_hit_by_brick": [
-		"Anh đứng nhìn em bị gạch đập thế à? Đồ mưu sát!",
+		"Là anh đứng nhìn em bi như vậy thiệt luôn!",
 		"Đau chết em rồi! Anh không biết che cho em à?",
 		"Anh muốn em biến mất để anh đi với cô khác đúng không?",
 		"Chia tay đi! Anh định ám sát bạn gái mình đấy à?"
 	],
 	"player_caught": [
 		"Làm chuyện xấu bị bắt quả tang rồi nhé, đáng đời!",
-		"Anh định giấu em cái gì đúng không? Khai mau!",
+		"Ê anh đang đi với em luôn á ",
 		"Đồ tồi! Anh tưởng anh trốn được chắc?"
 	],
 	"time_up": [
-		"Hết giờ rồi, anh định để em chờ đến bao giờ nữa?",
-		"Anh chậm chạp như sên ấy, em đi về đây!",
+			"Anh chậm chạp như sên ấy, em đi về đây!",
 		"Em không có cả đời để đợi anh đâu nhé!"
 	],
 	"hit_by_car": [
@@ -41,14 +39,13 @@ const REASON_MESSAGES = {
 		"Lần sau nhìn đường giùm em cái, đồ hậu đậu!"
 	],
 	"npc_hit_by_car": [
-		"Anh dắt tay em kiểu gì mà để em bị xe đâm thế hả?",
-		"Anh muốn hưởng tiền bảo hiểm của em đúng không?",
+		"Anh dắt tay em kiểu gì thế hả?",
 		"Không tin được là anh lại để em gặp nguy hiểm như thế!"
 	],
 	"stepped_in_puddle": [
 		"Mình đê ý tí xíu được hông anh",
 		"Anh làm vậy mà coi được á hả!",
-		"RỒi nhắm đi được thì đi luôn đi nha "
+		"Rồi nhắm đi được thì đi luôn đi nha "
 	],
 	"npc_stepped_in_puddle": [
 		"Bẩn hết đồ em rồi! Anh đền đi, đồ đáng ghét!",
@@ -58,11 +55,9 @@ const REASON_MESSAGES = {
 	"npc_stepped_in_trash": [
 		"Anh dắt em đi kiểu gì mà vào thẳng bãi rác thế hả?!",
 		"Trong mắt anh em chỉ xứng đáng đứng cạnh thùng rác thôi sao?",
-		"Kỷ niệm ngày yêu nhau anh dắt em đi ngắm bãi rác à? Đồ tồi!"
 	],
 	"stepped_in_trash": [
 		"Đầu óc anh để đi đâu mà lại lao đầu vào thùng rác thế?",
-		"Anh định hóa thân thành gấu rác à? Nhìn bẩn chết đi được!",
 		"Chừa cái tội vừa đi vừa nhìn cô khác nhé, lao vào đống rác rồi kìa!"
 	],
 	"caught_staring": [
@@ -88,7 +83,7 @@ const REASON_MESSAGES = {
 	],
 	"theend":
 		[
-			"Sao anh hong chở em về mà bắt em đi bộ z"
+			"Sao anh hong chở em về mà bắt em đi bộ vậy"
 		]
 }
 
@@ -188,9 +183,7 @@ func _on_retry_button_pressed():
 	get_tree().reload_current_scene()
 
 func _on_menu_button_pressed():
-	get_tree().paused = false
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	get_tree().reload_current_scene()
+	get_tree().quit()
 
 func _on_girlfriend_game_over(reason: String) -> void:
 	pass
