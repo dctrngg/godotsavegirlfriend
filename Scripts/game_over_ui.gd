@@ -46,9 +46,9 @@ const REASON_MESSAGES = {
 		"Không tin được là anh lại để em gặp nguy hiểm như thế!"
 	],
 	"stepped_in_puddle": [
-		"Ướt hết giày rồi, anh định bế em đi suốt quãng đường còn lại à?",
-		"Người đâu mà vô ý tứ, nhìn cái vũng nước to đùng thế kia mà!",
-		"Anh định tắm dưới vũng nước đấy à? Đồ trẻ con!"
+		"Mình đê ý tí xíu được hông anh",
+		"Anh làm vậy mà coi được á hả!",
+		"RỒi nhắm đi được thì đi luôn đi nha "
 	],
 	"npc_stepped_in_puddle": [
 		"Bẩn hết đồ em rồi! Anh đền đi, đồ đáng ghét!",

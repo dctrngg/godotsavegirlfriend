@@ -33,7 +33,6 @@
 [ext_resource type="ArrayMesh" uid="uid://bkwggfn2s1yit" path="res://Assests/Car/policeee.obj" id="26_3spdv"]
 [ext_resource type="ArrayMesh" uid="uid://bladwy1oapxyf" path="res://Assests/Car/handback.obj" id="27_wex5w"]
 [ext_resource type="PackedScene" uid="uid://6ts5f8vainjg" path="res://Scenes/Puddle.tscn" id="28_de5wk"]
-[ext_resource type="ArrayMesh" uid="uid://cg3ra4si0siqk" path="res://Assests/water/Low Poly Water2.obj" id="29_ctcri"]
 [ext_resource type="ArrayMesh" uid="uid://dh3s2mm0vs08c" path="res://Assests/water/Low Poly Water.obj" id="30_mkebs"]
 [ext_resource type="PackedScene" uid="uid://cgne5gvscdd75" path="res://Scenes/Trash.tscn" id="31_a4ai1"]
 [ext_resource type="ArrayMesh" uid="uid://df8e5mufvv7xf" path="res://Assests/obj/trash_B.obj" id="32_h2ogk"]
@@ -563,7 +562,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.961789, 0.81462073, -14.08
 curve = SubResource("Curve3D_ivbkn")
 
 [node name="Car_1_x" type="PathFollow3D" parent="CarPath/Path3D" unique_id=1773564047 groups=["car"]]
-transform = Transform3D(0.0011793056, 0.0017219203, -0.99994916, 5.8202384e-11, 0.9999893, 0.0017218539, 0.9999085, -2.0309144e-06, 0.0011793536, -60, 0.2, 0.307)
+transform = Transform3D(0.0011793056, 0.0017219203, -0.9999491, 5.820238e-11, 0.9999893, 0.0017218537, 0.99990845, -2.0309144e-06, 0.0011793536, -60, 0.2, 0.307)
 script = ExtResource("22_lxtj3")
 max_speed = 10.0
 start_offset = 0.0
@@ -579,7 +578,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01813221, 0.71655273, 0.16
 shape = SubResource("BoxShape3D_ivfu3")
 
 [node name="Car_1_x2" type="PathFollow3D" parent="CarPath/Path3D" unique_id=1700711379 groups=["car"]]
-transform = Transform3D(0.0011793056, 0.0017219202, -0.9999491, 5.820238e-11, 0.9999892, 0.0017218537, 0.99990845, -2.0309144e-06, 0.0011793536, -60, 0.2, 0.307)
+transform = Transform3D(0.0011793055, 0.0017219202, -0.99994904, 5.8202377e-11, 0.9999892, 0.0017218536, 0.9999084, -2.0309144e-06, 0.0011793535, -60, 0.2, 0.307)
 script = ExtResource("22_lxtj3")
 max_speed = 11.0
 
@@ -594,7 +593,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01813221, 0.71655273, 0.16
 shape = SubResource("BoxShape3D_ivfu3")
 
 [node name="Car_1_x3" type="PathFollow3D" parent="CarPath/Path3D" unique_id=395843738 groups=["car"]]
-transform = Transform3D(0.0011793055, 0.0017219202, -0.99994904, 5.8202377e-11, 0.9999892, 0.0017218536, 0.9999084, -2.0309144e-06, 0.0011793535, -60, 0.2, 0.307)
+transform = Transform3D(0.0011793055, 0.0017219202, -0.999949, 5.8202373e-11, 0.9999892, 0.0017218535, 0.9999083, -2.0309144e-06, 0.0011793533, -60, 0.2, 0.307)
 script = ExtResource("22_lxtj3")
 max_speed = 10.0
 start_offset = -2.0
@@ -665,20 +664,20 @@ shape = SubResource("BoxShape3D_ivfu3")
 [node name="Puddle" parent="Water" unique_id=1586123377 groups=["puddle"] instance=ExtResource("28_de5wk")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.898, 0.85, -1.338)
 
-[node name="Puddle5" parent="Water" unique_id=1211401315 groups=["puddle"] instance=ExtResource("28_de5wk")]
+[node name="Puddle2" parent="Water" unique_id=1211401315 groups=["puddle"] instance=ExtResource("28_de5wk")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 35.165234, 0.85, -26.755049)
+
+[node name="Puddle6" parent="Water" unique_id=809702608 groups=["puddle"] instance=ExtResource("28_de5wk")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 27.880444, 0.85, -74.432274)
+
+[node name="Puddle7" parent="Water" unique_id=30206236 groups=["puddle"] instance=ExtResource("28_de5wk")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 10.126355, 0.85, -95.646996)
+
+[node name="Puddle8" parent="Water" unique_id=1835613436 groups=["puddle"] instance=ExtResource("28_de5wk")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 23.397675, 0.85, -122.97171)
+
+[node name="Puddle5" parent="Water" unique_id=927637425 groups=["puddle"] instance=ExtResource("28_de5wk")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.4198675, 0.85, -68.12645)
-
-[node name="Puddle2" parent="Water" unique_id=1223242620 groups=["puddle"] instance=ExtResource("28_de5wk")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 36.757275, 0.85, -28.276815)
-
-[node name="MeshInstance3D" parent="Water/Puddle2" index="0" unique_id=1449715794]
-mesh = ExtResource("29_ctcri")
-
-[node name="Puddle4" parent="Water" unique_id=1551341128 groups=["puddle"] instance=ExtResource("28_de5wk")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 26.040054, 0.85, -76.19856)
-
-[node name="MeshInstance3D" parent="Water/Puddle4" index="0" unique_id=1449715794]
-mesh = ExtResource("29_ctcri")
 
 [node name="Puddle3" parent="Water" unique_id=703553346 groups=["puddle"] instance=ExtResource("28_de5wk")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 58.887985, 0.85, -26.331167)
@@ -702,10 +701,10 @@ transform = Transform3D(1.1360466, 0, 0.3865206, 0, 1.2000002, 0, -0.3865206, 0,
 transform = Transform3D(1.1229033, -0.000725941, 0.42318743, -0.004326613, 1.199916, 0.01353875, -0.42316592, -0.014194731, 1.122822, 41.23794, 0.8015466, -5.484751)
 
 [node name="Trash9" parent="Water" unique_id=1193888934 groups=["puddle"] instance=ExtResource("31_a4ai1")]
-transform = Transform3D(1.1229033, -0.000725941, 0.42318743, -0.004326613, 1.199916, 0.01353875, -0.42316592, -0.014194731, 1.122822, 57.7851, 0.8015466, -36.32509)
+transform = Transform3D(1.1229033, -0.000725941, 0.42318743, -0.004326613, 1.199916, 0.01353875, -0.42316592, -0.014194731, 1.122822, 57.7851, 0.8015466, -35.58789)
 
 [node name="Trash10" parent="Water" unique_id=557352366 groups=["puddle"] instance=ExtResource("31_a4ai1")]
-transform = Transform3D(1.1999663, 0.0044155805, -0.007869393, -0.004326614, 1.199916, 0.013538752, 0.007918656, -0.013509999, 1.199898, 56.64942, 0.8015466, -36.32509)
+transform = Transform3D(1.1999663, 0.0044155805, -0.007869393, -0.004326614, 1.199916, 0.013538752, 0.007918656, -0.013509999, 1.199898, 56.64942, 0.8015466, -35.58789)
 
 [node name="Trash7" parent="Water" unique_id=919561466 groups=["puddle"] instance=ExtResource("31_a4ai1")]
 transform = Transform3D(1.1796299, 0.006736462, -0.2200639, -0.004326614, 1.199916, 0.013538752, 0.22012442, -0.012515491, 1.1795716, 41.23794, 0.8015466, -4.3321543)
@@ -748,7 +747,7 @@ transform = Transform3D(-3.879437, 0, -0.974663, 0, 4, 0, 0.974663, 0, -3.879437
 transform = Transform3D(-0.40366966, 0, -3.979579, 0, 4, 0, 3.979579, 0, -0.40366966, 56.88524, 0.6915004, -31.435122)
 
 [node name="dumpster11" parent="Water" unique_id=2059077926 instance=ExtResource("33_al65q")]
-transform = Transform3D(-1.562539, 0, -3.6821826, 0, 4, 0, 3.6821826, 0, -1.562539, 56.88524, 0.6915004, -34.671135)
+transform = Transform3D(-1.562539, 0, -3.6821826, 0, 4, 0, 3.6821826, 0, -1.562539, 56.88524, 0.6915004, -33.933937)
 
 [node name="Trash11" parent="Water" unique_id=303895609 groups=["puddle"] instance=ExtResource("31_a4ai1")]
 transform = Transform3D(1.1229033, -0.000725941, 0.42318743, -0.004326613, 1.199916, 0.01353875, -0.42316592, -0.014194731, 1.122822, 57.7851, 0.8015466, -67.01164)
@@ -1140,7 +1139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, -72)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24, 0, -24)
 
 [node name="car_taxi2" parent="streetFall" unique_id=1048690460 instance=ExtResource("37_13n8b")]
-transform = Transform3D(-6, 0, -5.2453663e-07, 0, 6, 0, 5.2453663e-07, 0, -6, 54.241608, 0.8492948, -42.621387)
+transform = Transform3D(-6, 0, -5.2453663e-07, 0, 6, 0, 5.2453663e-07, 0, -6, 54.241608, 0.8492948, -44.778725)
 
 [node name="car_taxi3" parent="streetFall" unique_id=860894415 instance=ExtResource("37_13n8b")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -6.19364, 0.8492948, -70.33546)
@@ -1275,7 +1274,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.90215, 0.8, -54.303482)
 IDLE_TIME = 0.0
 
 [node name="Pedestrian20" parent="Girl" unique_id=1633096435 instance=ExtResource("41_h46qv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.58113, 0.8, -40.21293)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.80787, 0.8, -40.21293)
 IDLE_TIME = 0.0
 
 [node name="Pedestrian21" parent="Girl" unique_id=1014053296 instance=ExtResource("41_h46qv")]
@@ -1512,8 +1511,6 @@ autoplay = true
 [editable path="FallingNode/FallingBrick4"]
 [editable path="FallingNode/FallingBrick5"]
 [editable path="FallingNode/FallingBrick9"]
-[editable path="Water/Puddle2"]
-[editable path="Water/Puddle4"]
 [editable path="Water/Puddle3"]
 [editable path="Water/Trash2"]
 [editable path="Apple/apple"]
