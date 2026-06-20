@@ -11,14 +11,17 @@ const GIRLFRIEND_REASONS = [
 	"npc_hit_by_brick",
 	"npc_hit_by_car",
 	"npc_stepped_in_puddle",
+	"npc_stepped_in_trash",
 	"npc_hit_by_streetlight",
-	"npc_hit_by_tree"
+	"npc_hit_by_tree",
+	"theend"
 ]
 
 const SOURCE_REASONS = [
 	"hit_by_brick",
 	"hit_by_car",
 	"stepped_in_puddle",
+	"stepped_in_trash",
 	"caught_staring",
 	"hit_by_streetlight",
 	"hit_by_tree"
@@ -40,6 +43,14 @@ func _ready():
 	for puddle in get_tree().get_nodes_in_group("puddle"):
 		if not puddle.game_over.is_connected(_on_game_over):
 			puddle.game_over.connect(_on_game_over.bind(puddle))
+	
+	for trash in get_tree().get_nodes_in_group("trash"):
+		if not trash.game_over.is_connected(_on_game_over):
+			trash.game_over.connect(_on_game_over.bind(trash))
+	
+	for theend in get_tree().get_nodes_in_group("theend"):
+		if not theend.game_over.is_connected(_on_game_over):
+			theend.game_over.connect(_on_game_over.bind(theend))
 		
 	for pedestrian in get_tree().get_nodes_in_group("pedestrian"):
 		if not pedestrian.game_over.is_connected(_on_game_over):

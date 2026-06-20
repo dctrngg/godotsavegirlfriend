@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bc0kex4ptf3nv"]
+
+[ext_resource type="Script" uid="uid://dbh12nv4vyph1" path="res://Scripts/puddle.gd" id="1_4jvy7"]
+[ext_resource type="ArrayMesh" uid="uid://wlsho42doaqj" path="res://Assests/water/Low Poly Water1.obj" id="2_qr23n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4jvy7"]
+size = Vector3(31.93512, 1, 2.0649414)
+
+[node name="TheEnd" type="Area3D" unique_id=1211401315]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_4jvy7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1449715794]
+transform = Transform3D(4.5187325, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+visible = false
+mesh = ExtResource("2_qr23n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=626284911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0957136, 0.36883545, -0.485631)
+shape = SubResource("BoxShape3D_4jvy7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-# puddle.gd
+# theEnd
 extends Area3D
 
 signal game_over(reason: String)
@@ -8,7 +8,5 @@ func _ready():
 	visible = true
 
 func _on_body_entered(body):
-	if body.is_in_group("player"):
-		emit_signal("game_over", "stepped_in_puddle")
-	elif body.is_in_group("girlfriend"):
-		emit_signal("game_over", "npc_stepped_in_puddle")
+	if body.is_in_group("girlfriend"):
+		emit_signal("game_over", "theend")

@@ -86,6 +86,10 @@ const REASON_MESSAGES = {
 		"Anh để cột đèn đổ trúng em thế à? Đồ tệ!",
 		"Bảo vệ bạn gái kiểu gì vậy trời!",
 	],
+	"theend":
+		[
+			"Sao anh hong chở em về mà bắt em đi bộ z"
+		]
 }
 
 @onready var reason_label = $Panel/Label
@@ -112,6 +116,8 @@ const REASON_MESSAGES = {
 @export var sfx_npc_hit_by_tree: AudioStream
 @export var sfx_hit_by_streetlight: AudioStream
 @export var sfx_npc_hit_by_streetlight: AudioStream
+@export var sfx_theend: AudioStream
+
 
 # Dictionary map reason -> AudioStream, được build trong _ready() từ các ô export ở trên
 var _reason_sounds: Dictionary = {}
@@ -147,6 +153,7 @@ func _ready():
 		"npc_hit_by_tree": sfx_npc_hit_by_tree,
 		"hit_by_streetlight": sfx_hit_by_streetlight,
 		"npc_hit_by_streetlight": sfx_npc_hit_by_streetlight,
+		"theend": sfx_theend
 	}
 
 # Hàm kích hoạt âm thanh độc lập ngay khi vừa chạm, được gọi từ world.gd

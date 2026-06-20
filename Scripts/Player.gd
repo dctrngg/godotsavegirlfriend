@@ -24,10 +24,14 @@ var current_target = null
 
 var is_dead := false
 
+@export_group("Âm thanh")
+@export var footstep_sounds: Array[AudioStream] = []
+@onready var footstep_player = $FootstepPlayer
+var step_distance: float = 0.0
+const STEP_RATE: float = 2.5
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 
 func _unhandled_input(event):
 	if is_dead:
@@ -89,6 +93,18 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	_check_stare()
+	
+	# --- XỬ LÝ TIẾNG BƯỚC CHÂN ---
+	if is_on_floor() and velocity.length() > 0.5:
+		step_distance += velocity.length() * delta
+		if step_distance >= STEP_RATE:
+			step_distance = 0.0
+			if footstep_sounds.size() > 0:
+				footstep_player.stream = footstep_sounds.pick_random()
+			footstep_player.play()
+	else:
+		step_distance = 0.0
+	# -----------------------------
 	
 	# --- XỬ LÝ NÚT TƯƠNG TÁC (ẤN E HOẶC NÚT TAY CẦM) ---
 	if Input.is_action_just_pressed("interact"):
